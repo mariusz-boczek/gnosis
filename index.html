@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 640px) {
+  .column {
+    width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="row">
+  <div class="column">
+    <img src="cbdtarot_jpgs_293x567/cardback.jpg" alt="Snow" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="cbdtarot_jpgs_293x567/cardback.jpg" alt="Forest" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="cbdtarot_jpgs_293x567/cardback.jpg" alt="Mountains" style="width:100%">
+  </div>
+</div>
+
+<script>
+
+const deck = [
+"cbdtrot_jpgs_293x567/great_arcanum_00.jpg",
+"cbdtrot_jpgs_293x567/great_arcanum_01.jpg",
+"cbdtrot_jpgs_293x567/great_arcanum_02.jpg",
+"cbdtrot_jpgs_293x567/great_arcanum_03.jpg",
+"cbdtrot_jpgs_293x567/great_arcanum_04.jpg",
+"cbdtrot_jpgs_293x567/great_arcanum_05.jpg",
+"cbdtrot_jpgs_293x567/great_arcanum_06.jpg",
+"cbdtrot_jpgs_293x567/great_arcanum_07.jpg",
+"cbdtrot_jpgs_293x567/great_arcanum_08.jpg",
+"cbdtrot_jpgs_293x567/great_arcanum_09.jpg",
+"cbdtrot_jpgs_293x567/great_arcanum_10.jpg",
+"cbdtrot_jpgs_293x567/great_arcanum_11.jpg",
+"cbdtrot_jpgs_293x567/great_arcanum_12.jpg",
+"cbdtrot_jpgs_293x567/great_arcanum_13.jpg",
+"cbdtrot_jpgs_293x567/great_arcanum_14.jpg",
+"cbdtrot_jpgs_293x567/great_arcanum_15.jpg",
+"cbdtrot_jpgs_293x567/great_arcanum_16.jpg",
+"cbdtrot_jpgs_293x567/great_arcanum_17.jpg",
+"cbdtrot_jpgs_293x567/great_arcanum_18.jpg",
+"cbdtrot_jpgs_293x567/great_arcanum_19.jpg",
+"cbdtrot_jpgs_293x567/great_arcanum_20.jpg",
+"cbdtrot_jpgs_293x567/great_arcanum_21.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_coin_01.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_coin_02.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_coin_03.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_coin_04.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_coin_05.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_coin_06.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_coin_07.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_coin_08.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_coin_09.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_coin_10.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_coin_11.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_coin_12.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_coin_13.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_coin_14.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_cup_01.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_cup_02.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_cup_03.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_cup_04.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_cup_05.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_cup_06.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_cup_07.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_cup_08.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_cup_09.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_cup_10.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_cup_11.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_cup_12.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_cup_13.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_cup_14.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_sword_01.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_sword_02.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_sword_03.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_sword_04.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_sword_05.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_sword_06.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_sword_07.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_sword_08.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_sword_09.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_sword_10.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_sword_11.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_sword_12.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_sword_13.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_sword_14.jpg",
+"cbdtrot_jpgs_293x567/small_arcanum_wand_01.jpg",
+"cbdtarot_jpgs_293x567/small_arcanum_wand_02.jpg",
+"cbdtarot_jpgs_293x567/small_arcanum_wand_03.jpg",
+"cbdtarot_jpgs_293x567/small_arcanum_wand_04.jpg",
+"cbdtarot_jpgs_293x567/small_arcanum_wand_05.jpg",
+"cbdtarot_jpgs_293x567/small_arcanum_wand_06.jpg",
+"cbdtarot_jpgs_293x567/small_arcanum_wand_07.jpg",
+"cbdtarot_jpgs_293x567/small_arcanum_wand_08.jpg",
+"cbdtarot_jpgs_293x567/small_arcanum_wand_09.jpg",
+"cbdtarot_jpgs_293x567/small_arcanum_wand_10.jpg",
+"cbdtarot_jpgs_293x567/small_arcanum_wand_11.jpg",
+"cbdtarot_jpgs_293x567/small_arcanum_wand_12.jpg",
+"cbdtarot_jpgs_293x567/small_arcanum_wand_13.jpg",
+"cbdtarot_jpgs_293x567/small_arcanum_wand_14.jpg",
+"cbdtarot_jpgs_293x567/z00.jpg",
+"cbdtarot_jpgs_293x567/z01.jpg",
+]
+
+const card = function() {
+	const one_card = new Uint32Array(1);
+
+	/*
+
+	UWAGA! Typ mniej-bitowy (np. Uint8Array(1)) daje wyniki tendencyjne.
+	Liczby bliżej zera losowane są ZNACZNIE (dwukrotnie) częściej niż te (naj)dalej położone od niego!
+	
+	Test:
+
+	a = 0;
+	for (i=0; i<1000000; i++) {
+	    if (one_card() == 7) {
+		a++;
+	    };
+	};
+	console.log(1000000/78);
+	console.log(a);
+
+	*/
+
+	window.crypto.getRandomValues(one_card);
+	return (one_card % 78);
+}
+
+</script>
+
+</body>
+</html>
