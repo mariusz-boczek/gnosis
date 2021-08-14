@@ -36,7 +36,7 @@
 </div>
 <script>
 
-const layout = function() {
+const page_layout = function() {
 	let height = window.innerHeight;
 	let width = window.innerWidth;
 	if (height < width) return "landscape";
@@ -137,9 +137,12 @@ const deck = [
 ]
 
 const card = function() {
+	const sign = new Uint32Array(1);
 	const one_card = new Uint32Array(1);
+	window.crypto.getRandomValues(sign);
 	window.crypto.getRandomValues(one_card);
-	return (one_card % 78);
+	if (sign % 2 == 0) return ((one_card % 78) * (-1))
+	else return (one_card % 78);
 }
 
 const three_cards = function() {
@@ -149,11 +152,19 @@ const three_cards = function() {
 	while (cards[0] == cards[1]) {cards[1] = card()};
 	cards[2] = card();
 	while ((cards[0] == cards[2]) || (cards[1] == cards[2])) {cards[2] = card()};
-	document.getElementById("card_past").src = deck[cards[0]];
-	document.getElementById("card_present").src = deck[cards[1]];
-	document.getElementById("card_future").src = deck[cards[2]];
+	// card past
+	if (cards[0] < 0) document.getElementById("card_past").style.transform = "rotate(180deg)";
+	else document.getElementById("card_past").style.transform = "rotate(0deg)";
+	document.getElementById("card_past").src = deck[Math.abs(cards[0])];
+	// card present
+	if (cards[1] < 0) document.getElementById("card_present").style.transform = "rotate(180deg)";
+	else document.getElementById("card_present").style.transform = "rotate(0deg)";
+	document.getElementById("card_present").src = deck[Math.abs(cards[1])];
+	// card future
+	if (cards[2] < 0) document.getElementById("card_future").style.transform = "rotate(180deg)";
+	else document.getElementById("card_future").style.transform = "rotate(0deg)";
+	document.getElementById("card_future").src = deck[Math.abs(cards[2])];
 	return cards;
-// Dodać karty odwrócone!!!
 }
 
 document.getElementById("spread").addEventListener("click", three_cards);
