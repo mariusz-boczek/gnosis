@@ -60,8 +60,8 @@ const oracle = function() {
 }
 
 const oracle_show = function() {
-	document.getElementById("first").innerText = oracle()[0];
-	document.getElementById("second").innerText = oracle()[1];
+	document.getElementById("first").innerText = String(oracle()[0]);
+	document.getElementById("second").innerText = String(oracle()[1]);
 	return 0;
 }
 
