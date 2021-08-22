@@ -15,7 +15,7 @@
 
 /* Create three equal columns that sits next to each other */
 .column {
-  flex: 33.33%;
+  flex: 50%;
   padding: 0px;
 }
 </style>
@@ -23,15 +23,12 @@
 </head>
 
 <body onresize="resize();">
-<div id="spread" class="row">
-<div class="column">
-<img src="cbdtarot_jpgs_293x567/cardback.jpg" alt="Past" style="width:100%" id="card_past">
+<div id="oracle" class="row">
+<div class="column" style="height:100%">
+	<p style="width:100%" id="first"></p>
 </div>
 <div class="column">
-<img src="cbdtarot_jpgs_293x567/cardentry.jpg" alt="Present" style="width:100%" id="card_present">
-</div>
-<div class="column">
-<img src="cbdtarot_jpgs_293x567/cardback.jpg" alt="Future" style="width:100%" id="card_future">
+	<p style="width:100%" id="second"></p>
 </div>
 </div>
 <script>
@@ -53,121 +50,20 @@ const resize = function() {
 	// if layout() == "square" {}
 }
 
-const deck = [
-"cbdtarot_jpgs_293x567/great_arcanum_00.jpg",
-"cbdtarot_jpgs_293x567/great_arcanum_01.jpg",
-"cbdtarot_jpgs_293x567/great_arcanum_02.jpg",
-"cbdtarot_jpgs_293x567/great_arcanum_03.jpg",
-"cbdtarot_jpgs_293x567/great_arcanum_04.jpg",
-"cbdtarot_jpgs_293x567/great_arcanum_05.jpg",
-"cbdtarot_jpgs_293x567/great_arcanum_06.jpg",
-"cbdtarot_jpgs_293x567/great_arcanum_07.jpg",
-"cbdtarot_jpgs_293x567/great_arcanum_08.jpg",
-"cbdtarot_jpgs_293x567/great_arcanum_09.jpg",
-"cbdtarot_jpgs_293x567/great_arcanum_10.jpg",
-"cbdtarot_jpgs_293x567/great_arcanum_11.jpg",
-"cbdtarot_jpgs_293x567/great_arcanum_12.jpg",
-"cbdtarot_jpgs_293x567/great_arcanum_13.jpg",
-"cbdtarot_jpgs_293x567/great_arcanum_14.jpg",
-"cbdtarot_jpgs_293x567/great_arcanum_15.jpg",
-"cbdtarot_jpgs_293x567/great_arcanum_16.jpg",
-"cbdtarot_jpgs_293x567/great_arcanum_17.jpg",
-"cbdtarot_jpgs_293x567/great_arcanum_18.jpg",
-"cbdtarot_jpgs_293x567/great_arcanum_19.jpg",
-"cbdtarot_jpgs_293x567/great_arcanum_20.jpg",
-"cbdtarot_jpgs_293x567/great_arcanum_21.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_coin_01.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_coin_02.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_coin_03.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_coin_04.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_coin_05.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_coin_06.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_coin_07.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_coin_08.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_coin_09.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_coin_10.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_coin_11.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_coin_12.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_coin_13.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_coin_14.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_cup_01.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_cup_02.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_cup_03.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_cup_04.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_cup_05.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_cup_06.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_cup_07.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_cup_08.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_cup_09.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_cup_10.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_cup_11.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_cup_12.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_cup_13.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_cup_14.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_sword_01.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_sword_02.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_sword_03.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_sword_04.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_sword_05.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_sword_06.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_sword_07.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_sword_08.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_sword_09.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_sword_10.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_sword_11.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_sword_12.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_sword_13.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_sword_14.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_wand_01.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_wand_02.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_wand_03.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_wand_04.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_wand_05.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_wand_06.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_wand_07.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_wand_08.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_wand_09.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_wand_10.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_wand_11.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_wand_12.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_wand_13.jpg",
-"cbdtarot_jpgs_293x567/small_arcanum_wand_14.jpg",
-"cbdtarot_jpgs_293x567/z00.jpg",
-"cbdtarot_jpgs_293x567/z01.jpg",
-]
-
-const card = function() {
-	const sign = new Uint32Array(1);
-	const one_card = new Uint32Array(1);
-	window.crypto.getRandomValues(sign);
-	window.crypto.getRandomValues(one_card);
-	if (sign % 2 == 0) return ((one_card % 78) * (-1))
-	else return (one_card % 78);
+const oracle = function() {
+	const letters = ["ah", "ra", "pa", "tsa", "na", "dhi"]
+	const first_second = new Uint32Array(2);
+	window.crypto.getRandomValues(first_second);
+	return [letters[first_second[0]%6], letters[first_second[0]%6]]
 }
 
-const three_cards = function() {
-	let cards = ["", "", ""];
-	cards[0] = card();
-	cards[1] = card();
-	while (cards[0] == cards[1]) {cards[1] = card()};
-	cards[2] = card();
-	while ((cards[0] == cards[2]) || (cards[1] == cards[2])) {cards[2] = card()};
-	// card past
-	if (cards[0] < 0) document.getElementById("card_past").style.transform = "rotate(180deg)";
-	else document.getElementById("card_past").style.transform = "rotate(0deg)";
-	document.getElementById("card_past").src = deck[Math.abs(cards[0])];
-	// card present
-	if (cards[1] < 0) document.getElementById("card_present").style.transform = "rotate(180deg)";
-	else document.getElementById("card_present").style.transform = "rotate(0deg)";
-	document.getElementById("card_present").src = deck[Math.abs(cards[1])];
-	// card future
-	if (cards[2] < 0) document.getElementById("card_future").style.transform = "rotate(180deg)";
-	else document.getElementById("card_future").style.transform = "rotate(0deg)";
-	document.getElementById("card_future").src = deck[Math.abs(cards[2])];
-	return cards;
+const oracle_show = function() {
+	document.getElementById("first").innerText = oracle[0];
+	document.getElementById("second").innerText = oracle[1];
+	return 0;
 }
 
-document.getElementById("spread").addEventListener("click", three_cards);
+document.getElementById("oracle").addEventListener("click", oracle_show);
 
 </script>
 
