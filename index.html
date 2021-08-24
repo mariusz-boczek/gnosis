@@ -8,7 +8,7 @@
       #container {
         display: table;
         width: 100%;
-        height: 640px;
+        height: 100%;
         border: 3px dashed #1c87c9;
         text-align: center;
       }
@@ -37,11 +37,8 @@ const page_layout = function() {
 }
 
 const resize = function() {
-	// Zrobić trzy karty w środku viewport i dynamicznie zmieniać przy zmianie położenia urządzenia
-	// tak, żeby ciągle były w środku.
-	// if layout() == "landscape" {}
-	// if layout() == "portrait" {}
-	// if layout() == "square" {}
+	document.getElementById("container").style.height = window.innerHeight;
+	document.getElementById("container").style.width = window.innerWidth;
 }
 
 const oracle = function() {
