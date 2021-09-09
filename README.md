@@ -1,2 +1,0 @@
-# gnosis
-Let's cogitate!
